@@ -1,0 +1,81 @@
+<!--
+  Supabase auth email redirect target.
+
+  After a user taps the "Confirm your signup" link in their verification
+  email, Supabase verifies the token server-side and then redirects their
+  browser here — this page is purely informational and does not talk to
+  Supabase or the app itself.
+
+  This file must be hosted somewhere (e.g. static hosting) and that URL
+  set manually in the Supabase dashboard under
+  Authentication > URL Configuration as the confirmation redirect URL.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Email verified — Spendly</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  body {
+    background: #0d0d16;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .card {
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+  }
+  .wordmark {
+    font-size: 28px;
+    font-weight: 700;
+    color: #FF6B35;
+    letter-spacing: 0.5px;
+    margin-bottom: 32px;
+  }
+  .check {
+    width: 72px;
+    height: 72px;
+    border-radius: 999px;
+    background: rgba(255, 107, 53, 0.14);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+    font-size: 36px;
+    color: #FF6B35;
+    line-height: 1;
+  }
+  h1 {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 12px;
+  }
+  p {
+    color: #888888;
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="wordmark">Spendly</div>
+    <div class="check">&#10003;</div>
+    <h1>Email verified!</h1>
+    <p>You're all set. Head back to the Spendly app to continue.</p>
+  </div>
+</body>
+</html>

@@ -9,9 +9,6 @@
   This file must be hosted somewhere (e.g. static hosting) and that URL
   set manually in the Supabase dashboard under
   Authentication > URL Configuration as the confirmation redirect URL.
-
-  The "Back to Spendly" button is inert for now — deep linking into the
-  app will be wired up later.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -79,20 +76,7 @@
     font-size: 15px;
     line-height: 1.5;
     max-width: 300px;
-    margin: 0 auto 32px;
-  }
-  .cta {
-    display: block;
-    width: 100%;
-    background: #FF6B35;
-    color: #ffffff;
-    font-family: inherit;
-    font-size: 16px;
-    font-weight: 700;
-    border: none;
-    border-radius: 50px;
-    padding: 16px 48px;
-    cursor: pointer;
+    margin: 0 auto;
   }
 </style>
 </head>
@@ -109,8 +93,6 @@
 
     <h1>You're verified!</h1>
     <p class="subtitle">Your Spendly account is ready. Head back to the app to continue setting up.</p>
-
-    <button type="button" class="cta">Back to Spendly</button>
   </div>
 </body>
 </html>

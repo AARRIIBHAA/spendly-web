@@ -4,131 +4,215 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Terms of Service — Spendly</title>
+<meta name="description" content="The terms that govern your use of Spendly." />
+<link rel="icon" href="./logo-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
 <style>
+  :root {
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+    --accent: #FF6B35;
+    --accent-text: #BF3F17;
+    --text: #0D0D0D;
+    --text-secondary: #3C3C43;
+    --text-muted: #8E8E93;
+    --border: #E5E5EA;
+    --nav-bg: rgba(242, 242, 247, 0.75);
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'DM Mono', 'SF Mono', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0d16;
+      --card: #1a1a2e;
+      --accent-text: #FF6B35;
+      --text: #FFFFFF;
+      --text-secondary: #9898b8;
+      --text-muted: #55556f;
+      --border: #24243a;
+      --nav-bg: rgba(13, 13, 22, 0.72);
+    }
+  }
+
   * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    min-height: 100%;
-  }
+  html, body { margin: 0; padding: 0; }
   body {
-    background: #f5f5f5;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
     display: flex;
-    justify-content: center;
-    padding: 24px;
+    align-items: center;
+    padding: 14px 0;
   }
-  .card {
-    background: #ffffff;
-    max-width: 720px;
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    padding: 48px;
-  }
-  .header {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-  .tagline {
-    font-size: 16px;
-    color: #888888;
-    margin: 8px 0 0;
-  }
+  .nav-logo { height: 26px; width: auto; display: block; }
+
+  /* ---------- Document ---------- */
+  main { padding: 56px 0 96px; }
+  .doc { max-width: 680px; margin: 0 auto; }
   h1 {
-    color: #1a1a2e;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 24px 0 4px;
-    text-align: center;
+    font-size: clamp(30px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
   }
   .updated {
-    color: #888888;
+    font-family: var(--font-mono);
     font-size: 13px;
-    text-align: center;
-    margin: 0 0 32px;
+    color: var(--text-muted);
+    margin: 0 0 40px;
   }
   h2 {
-    color: #1a1a2e;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 32px 0 8px;
+    letter-spacing: -0.01em;
+    margin: 48px 0 12px;
   }
   p, li {
-    color: #444444;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
   }
-  ul {
-    margin: 8px 0;
-    padding-left: 20px;
-  }
-  a {
-    color: #FF6B35;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  ul { margin: 12px 0; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .doc a { color: var(--accent-text); text-decoration: none; }
+  .doc a:hover { text-decoration: underline; }
   .price {
-    font-weight: 700;
-    color: #1a1a2e;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--text);
   }
-  .footer-link {
-    display: block;
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
     text-align: center;
-    margin-top: 40px;
+    margin-top: 64px;
+  }
+  .footer-wordmark {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 24px;
+  }
+  .footer-wordmark span { color: var(--accent-text); }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .footer-links a {
     font-size: 14px;
-    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 200ms ease-out;
+  }
+  .footer-links a:hover { color: var(--accent-text); }
+  .footer-copy {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin: 0;
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <img src="./logo-full.png" alt="Spendly" style="width: 200px; height: auto; margin-bottom: 8px;">
-      <p class="tagline">No receipts. No stress.</p>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="./index.html" aria-label="Spendly home">
+        <picture>
+          <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
+          <img class="nav-logo" src="./logo-full.png" alt="Spendly" />
+        </picture>
+      </a>
     </div>
+  </header>
 
-    <h1>Terms of Service</h1>
-    <p class="updated">Last updated: 7 July 2026</p>
+  <main class="wrap">
+    <div class="doc">
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: 7 July 2026</p>
 
-    <p>These Terms of Service ("Terms") govern your use of Spendly, a personal finance app that helps you track expenses by logging transactions manually or by scanning receipts. By using Spendly, you agree to these Terms.</p>
+      <p>These Terms of Service ("Terms") govern your use of Spendly, a personal finance app that helps you track expenses by logging transactions manually or by scanning receipts. By using Spendly, you agree to these Terms.</p>
 
-    <h2>The service</h2>
-    <p>Spendly lets you log expenses, upload and scan receipts, organise spending into categories, and set budgets, so you can keep track of your money without the stress of manual bookkeeping.</p>
+      <h2>The service</h2>
+      <p>Spendly lets you log expenses, upload and scan receipts, organise spending into categories, and set budgets, so you can keep track of your money without the stress of manual bookkeeping.</p>
 
-    <h2>Free tier</h2>
-    <ul>
-      <li>Up to 15 receipt uploads</li>
-      <li>Manual expense logging</li>
-      <li>Category budgets</li>
-    </ul>
+      <h2>Free tier</h2>
+      <ul>
+        <li>Up to 15 receipt uploads</li>
+        <li>Manual expense logging</li>
+        <li>Category budgets</li>
+      </ul>
 
-    <h2>Premium tier</h2>
-    <p>Spendly Premium unlocks:</p>
-    <ul>
-      <li>Unlimited receipt uploads</li>
-      <li>AI-powered spending insights</li>
-      <li>Monthly statements</li>
-    </ul>
-    <p>Premium is billed through Apple at <span class="price">R29/month</span> or <span class="price">R249/year</span>.</p>
+      <h2>Premium tier</h2>
+      <p>Spendly Premium unlocks:</p>
+      <ul>
+        <li>Unlimited receipt uploads</li>
+        <li>AI-powered spending insights</li>
+        <li>Monthly statements</li>
+      </ul>
+      <p>Premium is billed through Apple at <span class="price">R29/month</span> or <span class="price">R249/year</span>.</p>
 
-    <h2>Subscriptions and billing</h2>
-    <p>Subscriptions automatically renew at the end of each billing period unless cancelled. You can cancel at any time through your Apple Settings, at least 24 hours before the end of the current billing period to avoid being charged for the next one. Refunds are handled by Apple in accordance with their standard refund policy — Spendly does not process refunds directly.</p>
+      <h2>Subscriptions and billing</h2>
+      <p>Subscriptions automatically renew at the end of each billing period unless cancelled. You can cancel at any time through your Apple Settings, at least 24 hours before the end of the current billing period to avoid being charged for the next one. Refunds are handled by Apple in accordance with their standard refund policy — Spendly does not process refunds directly.</p>
 
-    <h2>Account suspension</h2>
-    <p>We reserve the right to suspend or terminate accounts that abuse the service, violate these Terms, or engage in fraudulent or unlawful activity.</p>
+      <h2>Account suspension</h2>
+      <p>We reserve the right to suspend or terminate accounts that abuse the service, violate these Terms, or engage in fraudulent or unlawful activity.</p>
 
-    <h2>Disclaimer</h2>
-    <p>Spendly is provided "as is" without warranties of any kind. The app is a tool to help you track and understand your spending — it does not constitute financial advice. We are not liable for any financial decisions you make based on information or insights provided by the app.</p>
+      <h2>Disclaimer</h2>
+      <p>Spendly is provided "as is" without warranties of any kind. The app is a tool to help you track and understand your spending — it does not constitute financial advice. We are not liable for any financial decisions you make based on information or insights provided by the app.</p>
 
-    <h2>Governing law</h2>
-    <p>These Terms are governed by the laws of the Republic of South Africa.</p>
+      <h2>Governing law</h2>
+      <p>These Terms are governed by the laws of the Republic of South Africa.</p>
 
-    <h2>Contact us</h2>
-    <p>Questions about these Terms? Reach us via our <a href="./support.html">Support page</a>.</p>
+      <h2>Contact us</h2>
+      <p>Questions about these Terms? Reach us via our <a href="./support.html">Support page</a>.</p>
+    </div>
+  </main>
 
-    <a class="footer-link" href="./privacy-policy.html">Read our Privacy Policy →</a>
-  </div>
+  <footer>
+    <div class="wrap">
+      <p class="footer-wordmark">Spend<span>ly</span></p>
+      <div class="footer-links">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./support.html">Support</a>
+      </div>
+      <p class="footer-copy">© 2026 Spendly. All rights reserved.</p>
+    </div>
+  </footer>
+
 </body>
 </html>

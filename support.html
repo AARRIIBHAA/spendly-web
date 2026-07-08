@@ -4,143 +4,236 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Support — Spendly</title>
+<meta name="description" content="Get help with Spendly — subscriptions, your account, and receipt scanning." />
+<link rel="icon" href="./logo-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+
 <style>
+  :root {
+    --bg: #F2F2F7;
+    --card: #FFFFFF;
+    --accent: #FF6B35;
+    --accent-text: #BF3F17;
+    --accent-soft: rgba(255, 107, 53, 0.08);
+    --text: #0D0D0D;
+    --text-secondary: #3C3C43;
+    --text-muted: #8E8E93;
+    --border: #E5E5EA;
+    --nav-bg: rgba(242, 242, 247, 0.75);
+    --font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'DM Mono', 'SF Mono', Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0d16;
+      --card: #1a1a2e;
+      --accent-text: #FF6B35;
+      --accent-soft: rgba(255, 107, 53, 0.14);
+      --text: #FFFFFF;
+      --text-secondary: #9898b8;
+      --text-muted: #55556f;
+      --border: #24243a;
+      --nav-bg: rgba(13, 13, 22, 0.72);
+    }
+  }
+
   * { box-sizing: border-box; }
-  html, body {
-    margin: 0;
-    min-height: 100%;
-  }
+  html, body { margin: 0; padding: 0; }
   body {
-    background: #f5f5f5;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  a { color: inherit; }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- Nav ---------- */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--nav-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
     display: flex;
-    justify-content: center;
-    padding: 24px;
+    align-items: center;
+    padding: 14px 0;
   }
-  .card {
-    background: #ffffff;
-    max-width: 720px;
-    width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-    padding: 48px;
-  }
-  .header {
-    text-align: center;
-    margin-bottom: 32px;
-  }
-  .tagline {
-    font-size: 16px;
-    color: #888888;
-    margin: 8px 0 0;
-  }
+  .nav-logo { height: 26px; width: auto; display: block; }
+
+  /* ---------- Document ---------- */
+  main { padding: 56px 0 96px; }
+  .doc { max-width: 680px; margin: 0 auto; }
   h1 {
-    color: #1a1a2e;
-    font-size: 26px;
-    font-weight: 700;
-    margin: 24px 0 4px;
-    text-align: center;
+    font-size: clamp(30px, 4vw, 38px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin: 0 0 8px;
   }
   .subtitle {
-    color: #888888;
-    font-size: 15px;
-    text-align: center;
+    font-size: 17px;
+    color: var(--text-secondary);
     margin: 0 0 32px;
   }
   .contact-box {
-    background: #fff0eb;
-    border-radius: 12px;
-    padding: 20px 24px;
+    background: var(--accent-soft);
+    border-radius: 16px;
+    padding: 24px;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: 40px;
   }
   .contact-box a {
-    color: #FF6B35;
+    color: var(--accent-text);
     font-weight: 700;
-    font-size: 16px;
+    font-size: 17px;
     text-decoration: none;
   }
-  .contact-box a:hover {
-    text-decoration: underline;
-  }
+  .contact-box a:hover { text-decoration: underline; }
   h2 {
-    color: #1a1a2e;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: 700;
-    margin: 32px 0 8px;
+    letter-spacing: -0.01em;
+    margin: 0 0 24px;
   }
   .faq-item {
-    margin-bottom: 20px;
+    padding: 24px 0;
+    border-top: 1px solid var(--border);
   }
+  .faq-item:last-child { border-bottom: 1px solid var(--border); }
   .faq-q {
-    color: #1a1a2e;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    margin: 0 0 6px;
+    margin: 0 0 8px;
   }
   .faq-a {
-    color: #444444;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-secondary);
     margin: 0;
   }
-  a {
-    color: #FF6B35;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+  .doc a { color: var(--accent-text); text-decoration: none; }
+  .doc a:hover { text-decoration: underline; }
   .footer-note {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 32px 0 0;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 48px 0;
     text-align: center;
-    color: #888888;
+    margin-top: 64px;
+  }
+  .footer-wordmark {
+    font-weight: 700;
+    font-size: 18px;
+    margin: 0 0 24px;
+  }
+  .footer-wordmark span { color: var(--accent-text); }
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .footer-links a {
+    font-size: 14px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 200ms ease-out;
+  }
+  .footer-links a:hover { color: var(--accent-text); }
+  .footer-copy {
     font-size: 13px;
-    margin-top: 32px;
+    color: var(--text-muted);
+    margin: 0;
   }
 </style>
 </head>
 <body>
-  <div class="card">
-    <div class="header">
-      <img src="./logo-full.png" alt="Spendly" style="width: 200px; height: auto; margin-bottom: 8px;">
-      <p class="tagline">No receipts. No stress.</p>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="./index.html" aria-label="Spendly home">
+        <picture>
+          <source srcset="./logo-full-dark.png" media="(prefers-color-scheme: dark)" />
+          <img class="nav-logo" src="./logo-full.png" alt="Spendly" />
+        </picture>
+      </a>
     </div>
+  </header>
 
-    <h1>Support</h1>
-    <p class="subtitle">We're here to help.</p>
+  <main class="wrap">
+    <div class="doc">
+      <h1>Support</h1>
+      <p class="subtitle">We're here to help.</p>
 
-    <div class="contact-box">
-      <a href="mailto:support@spendly.app">[support@spendly.app]</a>
+      <div class="contact-box">
+        <a href="mailto:support@spendly.app">[support@spendly.app]</a>
+      </div>
+
+      <h2>Frequently asked questions</h2>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I cancel my subscription?</p>
+        <p class="faq-a">Open the Settings app on your device, tap your name, then tap Subscriptions, select Spendly, and choose Cancel Subscription. You'll keep Premium access until the end of your current billing period.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I delete my account?</p>
+        <p class="faq-a">Open Spendly, go to Settings, and select Delete Account. This permanently removes your account and all associated data, including your expenses and receipt images.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">I forgot my password, what do I do?</p>
+        <p class="faq-a">On the sign-in screen, tap "Forgot password?" and follow the instructions sent to your email to reset it.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">The app is not recognising my receipt, what should I do?</p>
+        <p class="faq-a">Make sure the receipt is well-lit, flat, and fully in frame when you take the photo. If it still isn't recognised, you can always log the expense manually, and feel free to let us know so we can improve receipt scanning.</p>
+      </div>
+
+      <div class="faq-item">
+        <p class="faq-q">How do I contact support?</p>
+        <p class="faq-a">Email us at <a href="mailto:support@spendly.app">[support@spendly.app]</a> and we'll get back to you.</p>
+      </div>
+
+      <p class="footer-note">We aim to respond to all support queries within 2 business days.</p>
     </div>
+  </main>
 
-    <h2>Frequently asked questions</h2>
-
-    <div class="faq-item">
-      <p class="faq-q">How do I cancel my subscription?</p>
-      <p class="faq-a">Open the Settings app on your device, tap your name, then tap Subscriptions, select Spendly, and choose Cancel Subscription. You'll keep Premium access until the end of your current billing period.</p>
+  <footer>
+    <div class="wrap">
+      <p class="footer-wordmark">Spend<span>ly</span></p>
+      <div class="footer-links">
+        <a href="./privacy-policy.html">Privacy Policy</a>
+        <a href="./terms-of-service.html">Terms of Service</a>
+        <a href="./support.html">Support</a>
+      </div>
+      <p class="footer-copy">© 2026 Spendly. All rights reserved.</p>
     </div>
+  </footer>
 
-    <div class="faq-item">
-      <p class="faq-q">How do I delete my account?</p>
-      <p class="faq-a">Open Spendly, go to Settings, and select Delete Account. This permanently removes your account and all associated data, including your expenses and receipt images.</p>
-    </div>
-
-    <div class="faq-item">
-      <p class="faq-q">I forgot my password, what do I do?</p>
-      <p class="faq-a">On the sign-in screen, tap "Forgot password?" and follow the instructions sent to your email to reset it.</p>
-    </div>
-
-    <div class="faq-item">
-      <p class="faq-q">The app is not recognising my receipt, what should I do?</p>
-      <p class="faq-a">Make sure the receipt is well-lit, flat, and fully in frame when you take the photo. If it still isn't recognised, you can always log the expense manually, and feel free to let us know so we can improve receipt scanning.</p>
-    </div>
-
-    <div class="faq-item">
-      <p class="faq-q">How do I contact support?</p>
-      <p class="faq-a">Email us at <a href="mailto:support@spendly.app">[support@spendly.app]</a> and we'll get back to you.</p>
-    </div>
-
-    <p class="footer-note">We aim to respond to all support queries within 2 business days.</p>
-  </div>
 </body>
 </html>
